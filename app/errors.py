@@ -3,6 +3,11 @@ class VaccineError(Exception):
     pass
 
 
+class NotWearingMaskError(Exception):
+    def __init__(self, visitor_name: str = "") -> None:
+        super().__init__(f"{visitor_name} is not wearing a mask.")
+
+
 class NotVaccinatedError(VaccineError):
     def __init__(self, visitor_name: str = "") -> None:
         super().__init__(f"{visitor_name} is not vaccinated.")
@@ -11,8 +16,3 @@ class NotVaccinatedError(VaccineError):
 class OutdatedVaccineError(VaccineError):
     def __init__(self, visitor_name: str = "") -> None:
         super().__init__(f"{visitor_name}'s vaccine is outdated.")
-
-
-class NotWearingMaskError(Exception):
-    def __init__(self, visitor_name: str = "") -> None:
-        super().__init__(f"{visitor_name} is not wearing a mask.")
